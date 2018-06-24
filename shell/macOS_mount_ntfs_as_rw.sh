@@ -76,7 +76,7 @@ for disk in $external_disks; do
 			read -p "Disk [$disk] is already mounted on [$mp], do you want to eject it? (Y/N)" option
 			case $option in
 				[Yy]*) eject_disk $disk; break;;
-				[Nn]*) echo "Mount as NTFS r/w mode must ejecd it first"; exit;;
+				[Nn]*) echo "Mount as NTFS r/w mode must ejecd it first"; break;;
 				*) echo "Unknown option $option";
 			esac
 		done
@@ -88,7 +88,7 @@ for disk in $external_disks; do
 		read -p "Disk [$disk] is ejected, do you want to re-mount as r/w mode to [$mp]? (Y/N)" option
 		case $option in
 			[Yy]*) mount_as_ntfs_rw $disk $mp; break;;
-			[Nn]*) echo "exit!"; exit;;
+			[Nn]*) echo "exit!";break;;
 			*) echo "Unknown option $option";
 		esac
 	done
